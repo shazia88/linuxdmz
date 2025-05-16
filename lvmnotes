@@ -1,0 +1,17 @@
+* LVM Topic:
+* First on power off the machine. and then go to settings and storage, controller sata, add hard disk,create, change the storage, change the vm into hard disk and finish it.
+* 
+* It is used to make a new disk for having more storage after the disk storage full.
+* It is used while the server is up and running.
+* It has 3 stages to create new disk on a disk.
+1. First create physical volume of a disk sdb. pvcreate /dev/sdb because sdb is present in /dev 
+2. Second create volume group. vg2025(name). Command is vgcreate vg2025 /dev/sdb.
+3. Now, create logical volume. lvcreate -n lv2025 -L +2G vg2025.
+To check if it is created use lvs for logicall volume and vgs for volume group.
+
+Now we add file on this disk.
+first create diresctory mkdir /dir2025. then mkfs.xfs /dev/vg2025/lv2025
+Go to the file vi, /etc/fstab because device add in that file.
+Now mount it . mount /dir2025. rum command systemctl daemon-reload.
+Now check the list of a disk ( lsblk)
+
