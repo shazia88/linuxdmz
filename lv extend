@@ -1,0 +1,6 @@
+* LV extend: 
+*To add more space in a new disk.
+* same steps as lvm .
+* pvcreate /dev/sdc,  vgextend vg2025 /dev/sdc,  then first checl that how much space has in a disk by lvs,  then lvextend -L +2G /dev/vg2025/lv2025 -r.
+
+
