@@ -1,0 +1,27 @@
+*NFS Topic:
+
+yum -y install nfs-utils
+  systemctl enable nfs-server --now
+firewall-cmd --add-port=2049/tcp --permanent
+firewall-cmd --add-port=2049/udp --permanent
+ firewall-cmd --add-service=mountd --permanent
+firewall-cmd --add-service=rpc-bind --permanent
+firewall-cmd --reload
+ setenforce 0
+getenforce
+make a directory
+ vim /etc/exports
+/p2050 192.168.1.202(rw,sync,no_root_squash)
+ exportfs -a
+cd /p2050/
+
+
+NFS client
+showmount -e 192.168.1.201
+ mkdir /nas201
+vim /etc/fstab
+192.168.1.201:/p2050    /nas201 nfs     defaults        0       0
+mount /nas201
+systemctl daemon-reload
+cd /nas201
+
