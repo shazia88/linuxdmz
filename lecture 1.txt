@@ -1,0 +1,17 @@
+How to create a Machine :
+
+* First name the machine 
+* Change the Iso image , select rocky
+* select Linux and red hate 8bit 
+* select 2 cpu, 16 gb
+* finish 
+* go to settings, select bridge adapter and change pointing device 
+
+How to spin: 
+
+* start
+* storage configeration (custom), Add partitions \ boot (500mb), bois(500mb),swap(500mb),\var(4g)and \
+* set the password
+* Add user name and password 
+* Begin installation 
+* Then reboot system
