@@ -1,0 +1,21 @@
+* GitHub Topic:
+# How to create GitHub account:
+GitHub sign up
+Open VM and run the machine > yum -y install git > cd .ssh/ > cat id_rsa.pub > copy ID
+Profile settings > SSH and GPG keys > add SSH > name and paste key
+Create repo on github > public > Checkamrk "Add README file"
+Go to code (in green color) > SSH > Copy id
+On VM server- run--- git clone id (SSH ID)
+git config --global user.name "username"
+git config --global user.email "email id"
+(package ill be install in homw directory)
+
+
+# How to create branches in GitHub
+* git branch shows main and new created branch
+* git branch -a shows all branches that you created
+* To create new branch: git branch branchname
+* Now push it into GitHub so: push -u origin branchname
+* To switch to another branch: git switch branch name
+* To create and switch at the same time: git checkout -b devbranch
+
