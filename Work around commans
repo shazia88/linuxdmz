@@ -1,0 +1,112 @@
+how to check hostname: hostname , uname -n (enter)
+how to change host name: hostnamectl set-hostname (new name)
+how to check list : real command ls -l , ls shortcut/alias(Linux term) : ll
+to refresh terminal : bash (enter)
+to create file : touch filename
+how to clear screen : clear comman / shortcut: ctrl +l
+to shutdown the machine: poweroff , systemctl poweroff, init 0(enter)
+* To reboot the machine: init6, shutdown -r , reboot
+
+Changing the "bootproto" setting on a virtual machine to "static" allows the machine to use a fixed IP address instead of relying on DHCP to assign one every time it boots. Because it create login issues
+
+Changing the ONBOOT setting of a virtual machine's network interface to "yes" ensures that the network interface is automatically activated and connected to the network when the virtual machine starts.
+
+Running bash is a quick way to refresh your shell environment, so it reflects the new hostname immediately.
+
+* To create directory(folder) : mkdir (directoryname).
+* To create directory structure : mkdir -p pak/isl/faisal mosque (enter)
+* To change directory :cd pak 
+* To change directory to root page:  cd
+* To move back to previous directory : cd ..
+* To check path of current directory: pwd (p stands for print, w stands for working and d stands for directory)
+* To check history of your work : history 
+* To instaal a package: yum -y install tree(package name).
+* to check the directory structure : tree directory name
+* To see the information of package: yum info tree
+* To remove the package : yum -y remove package name
+* To see the working repositories (storage location for packages) on the system : yum repolist
+* To remove directory : rmdir directory name
+* To remove file or directory structure: rm -rf( r stands for recusively  and f stands for forcefully) directory/file name
+* To see the information of system : uname -a ( a stands for all)
+*  To see the  release version of machine : uname -r
+* To see the ifo of kernel( it is the core part of  virtual box like a cpu to the computer ): uname -v
+* To see disk space: df -h ( -h used for human readable output)
+* To read the file: cat filename
+* To edit file: vim filename ( press i for editing in the file, O for inert and next line, :se nu ( set line number), :%s/ali/umer/g( to change line in the file ),  yy to copy, p to paste, gg to move the cursor to the first line, shift g to move to the last line, u to undo, press esc and :wq to save and exit)
+* To check current user: whoami
+* To see the path of commands: whereis ls( for example)
+* To copy the file: cp filename directoryname
+* To preserve time while copying the file: cp -p filename directoryname
+* To move the file: mv filename directoryname , to rename file : mv old filename new filename
+* uptime ( amount of time for system has been running, numbers of users loged in, load average( 1, 5, 15 min gap)
+* w and who for number of users loged in
+* echo $? : to see the status of previous command ( o means command correct)
+* echo good night >(single redirection sign) filename (overriding)
+* echo good morning >> filename (append)
+* To read first 10 line by default: head filename 
+* To read specific line from file: head -linesnumber filename
+* To read last 10 line by default : tail filename , for specific lines same as head command 
+* To print any world on the screen : echo hello world( any world)
+* To add more users: useradd username
+* To check new user: id username
+* To set password for new user: passwd username , then type the password and retype it 
+* To exit from the user: exit
+* whenever you add a new user the file modifiy: cat /etc/passwd
+* There are four commands present in a server by default: /etc/shadow ( encrypted password of users), /etc/gshadow (encrypted group password), /etc/group( extract group information), /etc/passwd ( extract user information)
+* To delete user: userdel username
+* To check if it is deleted: id username
+* To change ownership of a user: chown username filename
+* To change group of a user : chgrp groupname filename
+* To change both: chown user:group filename, (group means with which other user this file can be shared)
+* rpm -qa tree ( to see the info of package )
+* To check ip address: hostname -I
+* To count the lines in a file: wc -l filename
+* To count the worlds and chracters in a file: wc filename 
+ 
+* chmod (762) filename ( There are 3 types of users owner,user and others so in file firt 3 permission is for owner and other ccc3 for user and next is for others, 3 types of permissions read ,write,exceute) ( 4 for read, 2 for write , 1 for execute)(-rw-r--r--) These are the permission for the owner, with who we share the file and others )
+
+* By symbolic way then write chmod g+rws filename ( owner represents with U,user represents g, others o)
+
+* If we want to take back the permission then we write chmode u-wx filename
+
+* SSH ( stands for secure shell ) allows to server(machine) to communicate and share data 
+securily. 1. command is: ssh-keygen. we dont have -keygento put password second time (to generate key to make connection between server)
+2. ssh-copy-id ipaddress of second server. enter password
+3. ssh ipaddress to get access of second server 
+4. to exit from second server command: exit. To securily copy the file to another machine: scp filename root@ipaddress:/tmp
+
+* To create a link of a file( 2 types of link hardlink ,softlink) 
+ 
+* slash directory( var, root,boot,tmp) by default all files in the root directory root directory is also under slash. slash is a directory command: ll / enter it shows all directories of slash. slash is the main directory.
+to go to the other directory we enter cd /. 
+
+1. hard link command( create duplicate of a  file , the link remain even a file delete): first create structure. create file in a directory 3 then create hardlink by :ln/dir0/dir1/dir2/dir3/file66 mylink
+
+2. softlink command( create a shortcut of a link , if a file delete then the link will destroy and we have no shortcut): ln -s /dir0/dir1/dir2/dir3/file66 link1.
+
+ * Process(anything running in the system).Four stages of process.1. running 2. sleeping 3. zombie(the parent process is gone but the tiny part still remains in the server) 4. stop To see process list: ps , top(shows detailed info of process)
+* To see process with child process: ps -ef
+*  To see process with cpu  and memory details: ps -aux(all users executed)
+* To see background process: jobs
+* To run process in the background: sleep 30s &
+* To run process forground: fg %1
+* To kill/stop the process forcefully: kill -9(called sigkill) pid
+* To kill process gracefully: kill -15(sigterm) pid
+
+* To run multiple commands at a time: pwd ;(if the previous command is wrong second command will still work) ll , pwd && (  if previous command is wrong both command will not work) ll
+
+* tar( stands fore tape archive). it compiles multiple file in one file.
+
+*  To create archive file (in which we compress al files): Tar -cvf archive.tar filesname 
+* To check the list of files according to size : ll -sh (h for human readable)
+* To reduce the size of archive file: tar -cvzf ( z stands for zip) archive.tar filesname
+* To extract files in a directory: tar -xvf( x stands for extract) archive.tar -C directoryname
+* To update kernel: yum -y update kernel
+* To create group : groupadd groupname
+* To see file of a group that we created: cat /etc/group
+* To add user in a group: usermod -aG groupname username
+* When host was rebooted in which runlevel? Ans: who -r
+* kernel list: Ans: uname -r
+* CPU: lscpu , cat /proc/cpuinfo
+*  Memory:  cat /proc/meminfo
+
