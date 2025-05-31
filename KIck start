@@ -1,0 +1,17 @@
+*- What is kickstart in Linux ?
+A kickstart file is a simple text file that contains configuration information for a Red Hat Enterprise Linux installation. The system reads this configuration information at boot time and carries out the installation process without any further input from you.
+
+> yum -y install pykickstart
+> yum -y install system-config-kickstart
+> system-config-kickstart (create a ks.cfg file)
+> yum -y install httpd
+> systemctl enable httpd --now (start and enable the httpd)
+> firewall-cmd --add-service=http --permanent
+> firewall-cmd --add-service=https --permanent
+> firewall-cmd --reload 
+> setenforce 0
+> mv ks.cfg /var/www/html/
+> cd /var/www/html
+> chmod 644 ks.cfg
+> ksvalidator ks.cfg
+
