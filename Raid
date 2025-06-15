@@ -1,0 +1,8 @@
+Raid ( Redundant Array of independent disks) is a setup consisting of multiple disks for data storage. They are linked together to prevent loss and or speed up the performance.
+fault tolerance means that a system have the ability to continue functionig properly in the presence of hardware/software failiure.
+Redundancy involves having multiple components in a system that can perform the same function,ensuring that if one component is fails, the system can still operate using redundant components.
+It has 4 types
+1. Raid 0 (striping): Data split into two and more disks. but this type of raid only used for speed.
+2. Raid 1 (mirroring): Data save in teo or more disks so if one disks fail the other one will use by company. it is easy to setup but high in cost.
+3. Raid 5 ( striping with parity): It distributes data in different disks and add a parity disk to reconstruct the data if fails.
+4. Riad 10 (striping + mirroring): It combines the Raid 0 and Raid 1. It speed up the performance and store the data twice.
