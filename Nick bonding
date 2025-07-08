@@ -1,0 +1,2 @@
+It is basically used to connect a device with the outside devices. it basically controll the transfer of traffic. if one way is fail the data will tranfer from another way.
+we make ateam in which we add multiple network card as a player. if we set activeback as a runner then if one network card destroy then still the network wont stop and team  will work.
