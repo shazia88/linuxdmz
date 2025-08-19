@@ -1,0 +1,35 @@
+---
+- name: web playbook
+  hosts: all
+  tasks:
+    - name: installing a package
+      yum:
+        name: httpd
+        state: latest
+    - name: enable a service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+    - name : adding firewall
+      firewalld:
+        port: 80/tcp
+        permanent: true
+        state: enabled
+        immediate: true
+    - name: adding firewall
+      firewalld:
+        port: 80/udp
+        permanent: true
+        state: enabled
+        immediate: true
+    - name: modifying a file
+      lineinfile:
+        path: /var/www/html/index.html
+        line: 'hi'
+        create: yes
+
+
+~
+~
+~
