@@ -51,6 +51,22 @@
     - name: shell
       shell:
         cmd: 'exportfs -a'
-
-
+Then fisrt go to server-list and add ip of nfs server.
+create new file like server-list and add client ip in it
+create new playbook and run it with new file
+---
+- name: client playbook
+  hosts: all
+  tasks:
+    - name: creatingg a directory
+      file:
+        path: /nfs-client
+        state: directory
+    - name: mount
+      mount:
+        path: /nfs-client
+        src: 192.168.100.102:/nfs-share
+        state: mounted
+        fstype: nfs
+Then run df -h on client server.
                                                                                                                                             1,3           Top
