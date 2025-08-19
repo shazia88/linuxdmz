@@ -1,0 +1,16 @@
+Machine configuration:
+* first select activities , open terminal, switch to root user by su - and enter 
+* to open configuration file vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 , press i to insert and then change bootpro to static and yes boot
+* add IPADDR=
+* NETMASK=
+* GATEWAY=
+* DNS=
+* DNS1=
+* :wq (w stands for save and q stands for exit)
+* systemctl restart NetworkManager(use tab key)
+* ping google.com , (press ctrl +c to stop it)
+ping ip
+ping 8.8.8.8 ( use one either)
+* open mobaxterm and create session enter ip address , write root enter 
+type password enter 
+and poweroff

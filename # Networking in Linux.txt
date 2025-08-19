@@ -1,0 +1,50 @@
+# Networking in Linux:
+
+* A group of interconnected computers are called network and working on networks called as networking.
+
+* There are some tools and utilities in Linux designed for the administerative purpose which include configuring,maintaining,troubleshooting,managing servers and network.
+
+*the benefit of a network is to share resources across the network and communicate across the network with other users.
+
+# Linux networking commands:
+ 1. ifconfig: Linux ifconfig stands for interface configurator. we use ifconfig to get the info about the ip address , mac address and MTU(" maximum transmission unit).
+
+2. IP: It has the same purpose as ifconfig. It is updated version of ifconfig.
+
+3. Traceroute: most usefull command , used for troubleshoot. It detects the delay and determine the pathway to your target.
+
+4. Tracepath: similar to traceroute. it is used to detect network delay also it doesn't require root privilges. It is installed in ubunto by default.
+
+5. ping( Packet Internet groper): Most used troubleshooting command. It checks for the network connection b/w two servers. It sends the ICMP echo request to check the connectivity of network.
+
+6. netstat: refers to network  statistics. It provide statistical figure about different interface which includes open sockets, routing tables and connection information.
+
+7. ss: advanced version of netstat. faster and more informative command than netstat because it fetches all the info from eithin the kernel userspace.
+
+8. dig: domain information groper. used to get the info about DNS.
+
+9. nslookup: It also used for DNS related queries but it is an older version of dig.
+
+10. route: To display and manipulates the routing table on your system.It basically used to send packets to a destination
+
+11.host: It is used to display the domain name for an ip address.
+
+12. arp: Address resolution protocol, It is ysed to add and view content the kernel's ARP table.
+
+13: iwconfig: It is used to configure the wireless network interface.
+
+14: hostname: to set the hostname of a system.
+
+15: curl and wget: It is used to download files from the internet through CLI.
+
+16: mtr: It is a combination of ping and traceroute command.
+
+17: whois: to fetch the info related to a webite.
+
+18: ifplugstatus: To check if a cable is plugged into the network interface.
+
+19: iftop: Used in traffic monitoring.
+
+20: tcpdump: Most important command in network analysis among other linux network commands. It captures the traffic that is passing through the network interface and display it.
+
+21: ssh: To connect securely with the remote hosts over the internet.

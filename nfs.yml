@@ -1,0 +1,72 @@
+---
+- name: nfs playbook
+  hosts: all
+  tasks:
+    - name: installing a package
+      yum:
+        name: nfs-utils
+        state: latest
+    - name: enable service
+      service:
+        name: nfs-server
+        state: started
+        enabled: yes
+    - name: adding firewalls
+      firewalld:
+        port: 2049/tcp
+        permanent: yes
+        state: enabled
+        immediate: true
+    - name: adding firewall
+      firewalld:
+        port: 2049/udp
+        permanent: yes
+        state: enabled
+        immediate: true
+    - name: adding firewall
+      firewalld:
+        service: mountd
+        permanent: yes
+        state: enabled
+        immediate: true
+    - name: adding firewall
+      firewalld:
+        service: rpc-bind
+        permanent: yes
+        state: enabled
+        immediate: true
+    - name: selinux
+      selinux:
+        policy: targeted
+
+        state: permissive
+ - name: creatingg a directory
+      file:
+        path: /nfs-share
+        state: directory
+    - name: modifying a file
+      lineinfile:
+        path: /etc/exports
+        line: '/nfs-share 192.168.100.106(rw,sync,no_root_squash)'
+    - name: shell
+      shell:
+        cmd: 'exportfs -a'
+Then fisrt go to server-list and add ip of nfs server.
+create new file like server-list and add client ip in it
+create new playbook and run it with new file
+---
+- name: client playbook
+  hosts: all
+  tasks:
+    - name: creatingg a directory
+      file:
+        path: /nfs-client
+        state: directory
+    - name: mount
+      mount:
+        path: /nfs-client
+        src: 192.168.100.102:/nfs-share
+        state: mounted
+        fstype: nfs
+Then run df -h on client server.
+                                                                                                                                            1,3           Top

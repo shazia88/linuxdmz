@@ -1,0 +1,12 @@
+* WEB SERVER TOPIC:
+yum -y install httpd
+systemctl status httpd
+systemctl enable httpd --now
+firewall-cmd --list-all
+firewall-cmd --add-port=80/tcp --permanent
+firewall-cmd --add-port=80/udp --permanent
+firewall-cmd --reload
+browser: Ipaddr:80
+cd /var/www/html
+vim index.html--"code for website"
+browser: Ipaddr/index.html

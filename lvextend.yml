@@ -1,0 +1,18 @@
+---
+- name: lvextend playbook
+  hosts: all
+  tasks:
+    - name: extend vg
+      lvg:
+        vg: vg104
+        pvs: /dev/sdb,/dev/sdc,/dev/sdd
+    - name: extend lv
+      lvol:
+        vg: vg104
+        lv: lv104
+        size: 1G
+    - name: filesystem
+      filesystem:
+        fstype: xfs
+        dev: /dev/vg104/lv104
+        resizefs: yes
