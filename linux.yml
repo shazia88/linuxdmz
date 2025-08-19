@@ -1,0 +1,37 @@
+---
+- name: linux playbook
+  hosts: all
+  tasks:
+    - name: creatingg a directory
+      file:
+        path: /tmp/linux.txt
+        state: directory
+    - name: creatingg a file
+      file:
+        path: /tmp/linux.txt/file1
+        state: touch
+    - name: add a user
+      user:
+        name: sara
+        state: present
+    - name: install a package
+      yum:
+        name: git
+        state: latest
+    - name: modifying a file
+      lineinfile:
+        path: /tmp/linux.txt/file1
+        line: 'hello'
+        create: yes
+    - name: copy a file
+      copy:
+        src: /tmp/linux.txt/file1
+        dest: /root/file1
+    - name: add a group
+      group:
+        name: ali
+        state: present
+
+~
+~
+~
