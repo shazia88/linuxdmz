@@ -1,0 +1,39 @@
+Ansible tags:
+we use ansible tags for executing or skipping specific tasks from playbook. 
+first, write "tags: (task name) after every tasks in the indentation of module. Then during running playbook write ansible-playbook --tags (tag name) same as...
+To skip a task write --skip-tags (tag name)
+Ansible variables:
+To edit specific word repitively in the playbook. 
+syntax: ( for example)
+hosts:
+  hosts: all
+  vars:
+    - app: httpd
+  tasks:
+    - name: installl a package
+      yum:
+        name: "{{ app }}"
+        state: latest
+    - name: enable a service
+      service:
+        name: "{{ app }}"
+        state: started
+Ansible loop:
+for repetition of a task (for example)
+---
+- name: file playbook
+  hosts: all
+  tasks:
+    - name: creatingg a file
+      file:
+        path: "{{ item }}"
+        state: touch
+      loop:
+        - /tmp/file1
+        - /tmp/file2
+        - /tmp/file3
+Ansible vault:
+Lock the playbook
+first create playbook " ansible-vault create (playbook name)", put password, now if you cat it, it will not show the playbook data 
+for edit write "ansible-vault edit (playbook name)"
+If you want to read playbook write " ansible-vault decrypt (playbook name)" and cat it.
